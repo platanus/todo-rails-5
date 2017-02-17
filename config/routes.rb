@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'todo_lists#index'
+  resources :todo_lists
   scope path: '/api' do
     api_version(module: "Api::V1", path: { value: "v1" }) do
     end
