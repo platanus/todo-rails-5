@@ -3,9 +3,7 @@ require_relative './boot'
 require_relative './environment'
 
 module Clockwork
-  # Example
-  #
-  # every(5.minutes, 'ScheduledJob') do
-  #   ScheduledJob.perform_later
-  # end
+  every(1.minute, 'main_task.say_time') do
+    puts "Hi!  Right now time is #{Time.current}"
+  end
 end
