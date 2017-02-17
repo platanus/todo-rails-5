@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20170217164745) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
+  create_table "todo_items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.date     "due_date"
+    t.integer  "priority"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "todo_list_id"
+    t.index ["todo_list_id"], name: "index_todo_items_on_todo_list_id", using: :btree
+  end
+
   create_table "todo_lists", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
